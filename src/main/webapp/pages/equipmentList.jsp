@@ -61,27 +61,27 @@
                 <tr><td colspan="7" class="empty-tip">暂无设备数据，请先在上方新增</td></tr>
             </c:when>
             <c:otherwise>
-                <c:forEach items="${requestScope.eqList}" var="eq">
+                <c:forEach items="${requestScope.eqList}" var="item">
                     <tr>
-                        <td>${eq.eid}</td>
-                        <td>${eq.eqName}</td>
-                        <td>${eq.eqModel}</td>
-                        <td>${eq.eqSpec}</td>
-                        <td>${eq.eqLocation}</td>
+                        <td>${item.eid}</td>
+                        <td>${item.eqName}</td>
+                        <td>${item.eqModel}</td>
+                        <td>${item.eqSpec}</td>
+                        <td>${item.eqLocation}</td>
                         <td>
                             <c:choose>
-                                <c:when test="${eq.eqStatus == 0}"><span class="badge badge-free">空闲</span></c:when>
-                                <c:when test="${eq.eqStatus == 1}"><span class="badge badge-borrow">借出中</span></c:when>
-                                <c:when test="${eq.eqStatus == 2}"><span class="badge badge-repair">维修中</span></c:when>
+                                <c:when test="${item.eqStatus == 0}"><span class="badge badge-free">空闲</span></c:when>
+                                <c:when test="${item.eqStatus == 1}"><span class="badge badge-borrow">借出中</span></c:when>
+                                <c:when test="${item.eqStatus == 2}"><span class="badge badge-repair">维修中</span></c:when>
                                 <c:otherwise><span class="badge badge-scrap">报废</span></c:otherwise>
                             </c:choose>
                         </td>
                         <td>
                             <form action="${ctx}/equipment" method="post" style="display:inline">
                                 <input type="hidden" name="act" value="del">
-                                <input type="hidden" name="eid" value="${eq.eid}">
+                                <input type="hidden" name="eid" value="${item.eid}">
                                 <button class="btn btn-danger btn-sm" type="submit"
-                                        onclick="return confirm('确认删除设备「${eq.eqName}」吗？此操作不可恢复。')">删除</button>
+                                        onclick="return confirm('确认删除设备「${item.eqName}」吗？此操作不可恢复。')">删除</button>
                             </form>
                         </td>
                     </tr>

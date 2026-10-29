@@ -58,15 +58,15 @@
                     <tr><td colspan="5" class="empty-tip">暂无空闲可借用设备</td></tr>
                 </c:when>
                 <c:otherwise>
-                    <c:forEach items="${requestScope.freeEqList}" var="eq">
+                    <c:forEach items="${requestScope.freeEqList}" var="item">
                         <tr>
-                            <td>${eq.eid}</td>
-                            <td>${eq.eqName}</td>
-                            <td>${eq.eqSpec}</td>
-                            <td>${eq.eqLocation}</td>
+                            <td>${item.eid}</td>
+                            <td>${item.eqName}</td>
+                            <td>${item.eqSpec}</td>
+                            <td>${item.eqLocation}</td>
                             <td>
                                 <button class="btn btn-outline btn-sm" type="button"
-                                        onclick="document.getElementById('eidInput').value='${eq.eid}'">选用</button>
+                                        onclick="document.getElementById('eidInput').value='${item.eid}'">选用</button>
                             </td>
                         </tr>
                     </c:forEach>
