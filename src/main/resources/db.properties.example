@@ -1,0 +1,6 @@
+# \u6570\u636e\u5e93\u8fde\u63a5\u914d\u7f6e\u6a21\u677f
+# \u4f7f\u7528\u65b9\u6cd5\uff1a\u590d\u5236\u672c\u6587\u4ef6\u4e3a db.properties\uff08\u540c\u76ee\u5f55\uff09\uff0c\u7136\u540e\u628a user/password \u6539\u6210\u81ea\u5df1\u672c\u5730 MySQL \u7684\u8d26\u53f7\u5bc6\u7801
+jdbc.driver=com.mysql.cj.jdbc.Driver
+jdbc.url=jdbc:mysql://localhost:3306/lab_equipment?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf8
+jdbc.user=root
+jdbc.password=\u4f60\u7684MySQL\u5bc6\u7801

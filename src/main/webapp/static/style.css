@@ -1,0 +1,255 @@
+/* ============================================================
+   实验室设备借用系统 — 全站公共样式
+   所有页面引用同一份CSS，避免每个JSP重复维护
+   ============================================================ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+    background-color: #f0f4f9;
+    color: #1e293b;
+    min-height: 100vh;
+}
+
+a { text-decoration: none; }
+
+/* ---------- 顶部导航栏 ---------- */
+.topbar {
+    background: #1e293b;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.topbar-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+.brand {
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+.topnav { display: flex; gap: 6px; flex: 1; }
+.topnav a {
+    color: #cbd5e1;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all .15s;
+}
+.topnav a:hover { background: #334155; color: #fff; }
+.topnav a.active { background: #409eff; color: #fff; }
+.user-box {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 14px;
+    color: #cbd5e1;
+    white-space: nowrap;
+}
+.user-box .username { color: #fff; }
+.user-box .logout {
+    color: #fca5a5;
+    padding: 5px 12px;
+    border: 1px solid #7f1d1d;
+    border-radius: 6px;
+    transition: all .15s;
+}
+.user-box .logout:hover { background: #dc2626; color: #fff; border-color: #dc2626; }
+
+/* ---------- 主体容器 ---------- */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 28px 24px 48px;
+}
+.page-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* ---------- 卡片 ---------- */
+.card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.05);
+    padding: 24px;
+    margin-bottom: 24px;
+}
+.card h4 {
+    font-size: 17px;
+    color: #334155;
+    margin-bottom: 18px;
+}
+
+/* ---------- 表格 ---------- */
+table { width: 100%; border-collapse: collapse; }
+table th, table td {
+    padding: 12px 10px;
+    text-align: center;
+    font-size: 14px;
+    border-bottom: 1px solid #eef2f7;
+}
+table th {
+    background: #f8fafc;
+    color: #475569;
+    font-weight: 600;
+    white-space: nowrap;
+}
+table tbody tr:hover { background: #f7fbff; }
+table .row-actions { display: flex; gap: 8px; justify-content: center; align-items: center; flex-wrap: wrap; }
+
+/* ---------- 状态徽章 ---------- */
+.badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+}
+.badge-free    { background: #ecfdf5; color: #059669; }   /* 空闲 */
+.badge-borrow  { background: #eff6ff; color: #2563eb; }   /* 借出/借出中 */
+.badge-repair  { background: #fffbeb; color: #d97706; }   /* 维修中/待维修 */
+.badge-scrap   { background: #f3f4f6; color: #6b7280; }   /* 报废 */
+.badge-wait    { background: #fef9c3; color: #a16207; }   /* 待审批 */
+.badge-pass    { background: #ecfdf5; color: #059669; }   /* 通过/已完成 */
+.badge-reject  { background: #fef2f2; color: #dc2626; }   /* 驳回 */
+.badge-returned{ background: #f0fdf4; color: #16a34a; }   /* 已归还 */
+
+/* ---------- 按钮 ---------- */
+.btn {
+    display: inline-block;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all .15s;
+    line-height: 1.5;
+}
+.btn-primary { background: #409eff; color: #fff; }
+.btn-primary:hover { background: #337ecc; }
+.btn-success { background: #10b981; color: #fff; }
+.btn-success:hover { background: #059669; }
+.btn-danger  { background: #ef4444; color: #fff; }
+.btn-danger:hover { background: #dc2626; }
+.btn-outline {
+    background: #f0f7ff;
+    color: #409eff;
+    border: 1px solid #bfdbfe;
+}
+.btn-outline:hover { background: #409eff; color: #fff; border-color: #409eff; }
+.btn-sm { padding: 5px 12px; font-size: 13px; }
+
+/* ---------- 表单 ---------- */
+.form-item { margin-bottom: 16px; display: flex; align-items: center; }
+.form-item label { width: 120px; font-size: 14px; color: #475569; flex-shrink: 0; }
+.form-item input, .form-item select {
+    flex: 1;
+    height: 38px;
+    padding: 0 12px;
+    border: 1px solid #d1d9e6;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border .15s;
+}
+.form-item textarea {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid #d1d9e6;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+    resize: vertical;
+}
+.form-item input:focus, .form-item textarea:focus, .form-item select:focus {
+    outline: none;
+    border-color: #409eff;
+}
+
+/* ---------- 提示框 ---------- */
+.alert {
+    border-radius: 8px;
+    padding: 13px 18px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.7;
+}
+.alert-error { background: #fef2f2; border: 1px solid #fca5a5; color: #b91c1c; }
+.alert-success { background: #ecfdf5; border: 1px solid #6ee7b7; color: #047857; }
+.alert-info { background: #eff6ff; border: 1px solid #93c5fd; color: #1d4ed8; }
+
+/* ---------- 空状态 ---------- */
+.empty-tip {
+    color: #94a3b8;
+    text-align: center;
+    padding: 36px 0 !important;
+    font-size: 15px;
+}
+
+/* ---------- 底部操作区 ---------- */
+.action-bar { display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* ---------- 登录页专用 ---------- */
+.login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+.login-box {
+    background: #fff;
+    width: 400px;
+    padding: 40px 36px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.1);
+}
+.login-box .sys-name {
+    text-align: center;
+    font-size: 24px;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+.login-box .sys-sub {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 13px;
+    margin-bottom: 28px;
+}
+.login-box .form-item label { width: 60px; }
+.login-box .btn { width: 100%; padding: 11px 0; font-size: 16px; margin-top: 6px; }
+.tip-text {
+    margin-top: 22px;
+    color: #64748b;
+    font-size: 13px;
+    text-align: center;
+}
+
+/* ---------- 错误页 ---------- */
+.error-page { text-align: center; padding-top: 120px; }
+.error-page h1 { font-size: 64px; color: #cbd5e1; margin-bottom: 12px; }
+.error-page p { color: #64748b; margin-bottom: 28px; }
+
+/* ---------- 响应式微调 ---------- */
+@media (max-width: 760px) {
+    .topbar-inner { padding: 0 14px; gap: 12px; }
+    .topnav a { padding: 6px 8px; font-size: 13px; }
+    .form-item { flex-direction: column; align-items: stretch; gap: 6px; }
+    .form-item label { width: auto; }
+}
