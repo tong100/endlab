@@ -1,0 +1,6 @@
+<%@ page pageEncoding="UTF-8" %>
+<%-- 页面公共结尾：闭合主体容器 + 页脚 + HTML 收尾 --%>
+</main>
+<footer class="footer">实验室设备借用系统 · 课程设计</footer>
+</body>
+</html>

@@ -60,4 +60,4 @@
     </table>
 </div>
 
-</main>
+<%@ include file="/WEB-INF/common/bottom.jspf" %>
