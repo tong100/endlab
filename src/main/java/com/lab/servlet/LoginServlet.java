@@ -47,7 +47,15 @@ public class LoginServlet extends HttpServlet {
             return;
         }
 
-        User loginUser = userDao.login(username.trim(), password);
+        User loginUser;
+        try {
+            loginUser = userDao.login(username.trim(), password);
+        } catch (Exception e) {
+            // 数据库连不上等情况，给用户看真实原因而不是误导性的"密码错误"
+            req.setAttribute("msg", "数据库连接失败：" + e.getMessage());
+            req.getRequestDispatcher("/login.jsp").forward(req, resp);
+            return;
+        }
         if (loginUser != null) {
             HttpSession session = req.getSession();
             session.setAttribute("loginUser", loginUser);

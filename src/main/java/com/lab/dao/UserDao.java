@@ -28,6 +28,8 @@ public class UserDao {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            // 数据库层面失败（连接不上、驱动缺失等）不能伪装成"账号密码错误"，抛给上层给用户看真实原因
+            throw new RuntimeException("数据库访问失败：" + e.getMessage(), e);
         }
         return user;
     }

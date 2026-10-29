@@ -24,6 +24,15 @@ public class DBUtil {
     private static String USER = DEFAULT_USER;
     private static String PWD = DEFAULT_PWD;
 
+    // 显式加载驱动：Tomcat 的 WEB-INF/lib 虚拟挂载下，SPI 自动发现偶尔失效，显式加载最稳
+    static {
+        try {
+            Class.forName(DEFAULT_DRIVER);
+        } catch (ClassNotFoundException e) {
+            System.err.println("【DBUtil提示】MySQL驱动加载失败，请确认 mysql-connector-j 依赖已正确引入：" + e);
+        }
+    }
+
     // 类加载时读取一次配置文件
     static {
         try (InputStream in = DBUtil.class.getClassLoader().getResourceAsStream("db.properties")) {
