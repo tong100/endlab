@@ -1,0 +1,21 @@
+# 统一换行符处理：仓库内保存 LF，检出到 Windows 时自动转 CRLF
+* text=auto
+
+# 源码与配置文件按文本处理
+*.java       text
+*.jsp        text
+*.jspf       text
+*.css        text
+*.js         text
+*.xml        text
+*.properties text
+*.sql        text
+*.md         text
+
+# 二进制文件不做转换
+*.png        binary
+*.jpg        binary
+*.jpeg       binary
+*.gif        binary
+*.jar        binary
+*.war        binary
